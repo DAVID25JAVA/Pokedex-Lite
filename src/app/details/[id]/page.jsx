@@ -7,14 +7,15 @@ import { usePokemon } from "@/Context/pokemonContext";
 import API from "@/API/Api";
 import Loader from "@/UI/Loader";
 import Image from "next/image";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Heart, Star } from "lucide-react";
 
 function Page() {
   const { id } = useParams();
   const router = useRouter();
-  const { loading, setLoading } = usePokemon();
+  const { loading, setLoading, handleFavorites, favorites } = usePokemon();
   const [data, setData] = useState(null);
   const [pokemonLoading, setPokemonLoading] = useState(false);
+  const isFav = favorites.some((i) => i?.name == data?.name);
 
   useEffect(() => {
     if (id) {
@@ -29,7 +30,7 @@ function Page() {
         method: "GET",
         url: `/pokemon/${id}`,
       });
-      console.log("data--->", res);
+      // console.log("data--->", res);
       if (res) {
         setData(res);
       }
@@ -83,6 +84,20 @@ function Page() {
                 className="w-full h-64 lg:h-80 object-contain mx-auto drop-shadow-2xl"
                 priority
               />
+
+              <button
+                onClick={() => handleFavorites(data?.name)}
+                className=" absolute focus:outline-none top-2 right-2 flex cursor-pointer items-center justify-center w-9 h-9 rounded-full bg-red-50 hover:bg-red-100 transition-colors group"
+              >
+                {isFav ? (
+                  <Star size={20} className="text-red-500" />
+                ) : (
+                  <Heart
+                    size={20}
+                    className=" text-red-500 group-hover:text-red-500 transition-colors"
+                  />
+                )}
+              </button>
             </div>
             <div className="text-center lg:text-left">
               <h1 className="text-4xl lg:text-5xl font-bold capitalize bg-linear-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
@@ -101,7 +116,6 @@ function Page() {
             </div>
           </div>
 
-          
           <div className="space-y-8">
             {/* Stats */}
             <div>

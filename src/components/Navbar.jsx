@@ -9,7 +9,7 @@ import { X } from "lucide-react";
 function Navbar() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchText, setSearchText] = useState("");
-  const { pokeData, setPokeData, allPokeData } = usePokemon();
+  const { pokeData, setPokeData, allPokeData, favorites } = usePokemon();
 
   useEffect(() => {
     if (!searchText.trim()) {
@@ -30,8 +30,8 @@ function Navbar() {
   };
 
   const clearInput = () => {
-    setSearchText("")
-  }
+    setSearchText("");
+  };
 
   return (
     <Wrapper>
@@ -53,7 +53,10 @@ function Navbar() {
           </span> */}
 
           {searchText.trim() && (
-            <span onClick={clearInput} className="absolute right-1 flex items-center justify-center w-8 h-8 cursor-pointer bg-purple-500 text-white rounded-full">
+            <span
+              onClick={clearInput}
+              className="absolute right-1 flex items-center justify-center w-8 h-8 cursor-pointer bg-purple-500 text-white rounded-full"
+            >
               <X />
             </span>
           )}
@@ -69,11 +72,17 @@ function Navbar() {
           </button>
 
           {/* Favorites screens */}
-          <button className="flex items-center justify-center w-9 h-9 rounded-full hover:bg-red-50 transition-colors group">
+          <button className=" relative flex cursor-pointer items-center justify-center w-9 h-9 rounded-full bg-red-50 hover:bg-red-100 transition-colors group">
             <Heart
               size={20}
-              className="text-gray-400 group-hover:text-red-500 transition-colors"
+              className=" text-red-500 group-hover:text-red-500 transition-colors"
             />
+
+            {favorites?.length > 0 && (
+              <p className=" absolute top-0 right-0 text-[12px] w-5 h-5 text-center rounded-full text-white bg-primary">
+                {favorites.length > 0 && favorites?.length}
+              </p>
+            )}
           </button>
         </div>
       </div>
@@ -88,7 +97,7 @@ function Navbar() {
           <input
             type="text"
             value={searchText}
-            onChange={(e)=>setSearchText(e.target.value)}
+            onChange={(e) => setSearchText(e.target.value)}
             placeholder="Search by name..."
             className="w-full bg-gray-100 px-5 py-2.5 rounded-full outline-none border border-purple-100 focus:border-primary transition-colors text-sm"
             autoFocus={searchOpen}
@@ -98,7 +107,10 @@ function Navbar() {
           </span> */}
 
           {searchText.trim() && (
-            <span onClick={clearInput} className="absolute right-2 flex items-center justify-center w-8 h-8 cursor-pointer bg-purple-500 text-white rounded-full">
+            <span
+              onClick={clearInput}
+              className="absolute right-2 flex items-center justify-center w-8 h-8 cursor-pointer bg-purple-500 text-white rounded-full"
+            >
               <X />
             </span>
           )}
