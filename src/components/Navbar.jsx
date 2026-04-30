@@ -36,7 +36,6 @@ function Navbar() {
 
   return (
     <Wrapper>
-       
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -82,7 +81,6 @@ function Navbar() {
         </div>
 
         <div className="flex items-center gap-2">
-          
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
@@ -92,7 +90,6 @@ function Navbar() {
             <Search size={20} className="text-gray-600" />
           </motion.button>
 
-          
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}

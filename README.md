@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+ Pokedex Lite Web App
 
-## Getting Started
+A modern, responsive, and high-performance Pokédex Lite web application built using Next.js (JavaScript) and Tailwind CSS.
+The app enables users to explore Pokémon, search by name, filter by type, manage favorites, and view detailed stats — all with a smooth and interactive UI.
 
-First, run the development server:
 
-```bash
+Features
+✅ Core Features
+🔄 Data Fetching
+Integrated with PokéAPI
+Handles loading and error states efficiently
+📋 Pokémon Listing
+Responsive grid layout using Tailwind CSS
+Displays Pokémon image and name
+🔍 Search
+Real-time search functionality
+Instant filtering as the user types
+🧪 Filter by Type
+Filter Pokémon by types (Fire, Water, Grass, etc.)
+Dynamic UI updates
+📄 Pagination
+Efficient server-side pagination
+Optimized API calls
+⭐ Favorites
+Mark/unmark Pokémon as favorite
+Persisted using localStorage
+📊 Detail View
+Modal or separate page showing:
+Stats (HP, Attack, Defense, etc.)
+Abilities and types
+Smooth transitions and animations
+
+Bonus Features
+✨ Animations & Transitions
+Hover effects on cards
+Smooth modal open/close
+Interactive UI feedback
+⚡ Performance Optimization
+Built with Next.js for fast rendering and scalability
+
+
+🛠️ Tech Stack
+Framework: Next.js (JavaScript)
+Styling: Tailwind CSS
+State Management: React Context API
+Icons: lucide-react
+Notifications: react-hot-toast
+API: PokéAPI
+
+State Management (Context API)
+
+Used React Context API for managing global state across the application.
+
+🔹 Why Context API?
+Eliminates prop drilling
+Centralized and scalable state management
+Cleaner component structure
+🔹 Managed States:
+Pokémon data
+Favorites list
+
+
+Installation & Setup
+1️⃣ Clone the repository
+git clone https://github.com/DAVID25JAVA/Pokedex-Lite
+cd pokedex-lite
+
+Install dependencies
+npm install
+
+Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
