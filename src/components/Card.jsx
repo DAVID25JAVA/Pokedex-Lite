@@ -6,6 +6,7 @@ import PokemonCard from "@/UI/PokemonCard";
 import Wrapper from "@/UI/Wrapper";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { motion } from "framer-motion";
 
 function Card() {
   const {
@@ -126,9 +127,19 @@ function Card() {
     );
   }
 
+  const containerVariants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.05,
+      },
+    },
+  };
+
   return (
     <Wrapper>
       <div className="flex justify-end mt-10 gap-3 items-center">
+        {/* filter by type */}
         <select
           value={selectedType}
           onChange={(e) => handleTypeFilter(e.target.value)}
@@ -157,11 +168,16 @@ function Card() {
           <Loader />
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 2xl:grid-cols-6 gap-4 my-5 sm:my-10">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="show"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 2xl:grid-cols-6 gap-4 my-5 sm:my-10"
+        >
           {pokeData.map((p) => (
             <PokemonCard pokemonData={p} key={p.url} />
           ))}
-        </div>
+        </motion.div>
       )}
 
       <div className="flex justify-center items-center gap-2 my-6">
