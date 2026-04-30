@@ -8,7 +8,6 @@ const PokemoneContext = createContext();
 
 export const PokemonProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
-  const [searchData, setSearchData] = useState([]);
   const [pokeData, setPokeData] = useState([]);
   const [allPokeData, setAllPokeData] = useState([]);
   const [favorites, setFavorites] = useState([]);
