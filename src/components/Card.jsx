@@ -120,7 +120,7 @@ function Card() {
 
   if (!pokeData || pokeData.length === 0) {
     return (
-      <div className="sm:h-96 flex items-center justify-center text-black font-medium text-xl">
+      <div className="sm:min-h-screen h-96 flex items-center justify-center text-black font-medium text-xl">
         Data not available
       </div>
     );
@@ -157,7 +157,7 @@ function Card() {
           <Loader />
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 2xl:grid-cols-6 gap-4 my-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 2xl:grid-cols-6 gap-4 my-5 sm:my-10">
           {pokeData.map((p) => (
             <PokemonCard pokemonData={p} key={p.url} />
           ))}
